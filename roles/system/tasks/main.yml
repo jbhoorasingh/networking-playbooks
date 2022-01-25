@@ -1,0 +1,37 @@
+---
+- name: Configure - System - Arista EOS
+  arista.eos.eos_system:
+    hostname: "{{ inventory_hostname.upper() }}"
+    domain_name: "{{ domain_name }}"
+    name_servers:
+      - 8.8.8.8
+      - 4.4.2.2
+    domain_list:
+      - "{{ domain_name }}"
+    state: present
+  when: ansible_net_system == "eos"
+
+- name: Configure - System - Cisco IOS
+  cisco.ios.ios_system:
+    hostname: "{{ inventory_hostname.upper() }}"
+    domain_name: "{{ domain_name }}"
+    name_servers:
+      - 8.8.8.8
+      - 4.4.2.2
+#      - { server: 8.8.4.4, vrf: "{{ mgmt_vrf_name }}" }
+    domain_search:
+      - "{{ domain_name }}"
+    state: present
+  when: ansible_net_system == "ios"
+
+- name: Configure - System - Cisco NXOS
+  cisco.nxos.nxos_system:
+    hostname: "{{ inventory_hostname.upper() }}"
+    domain_name: "{{ domain_name }}"
+    name_servers:
+      - 8.8.8.8
+      - 4.4.2.2
+    domain_search:
+      - "{{ domain_name }}"
+    state: present
+  when: ansible_net_system == "nxos"

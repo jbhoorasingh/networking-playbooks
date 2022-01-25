@@ -1,0 +1,33 @@
+---
+# tasks file for ntp
+#- name: Configure - Banner_login - Arista
+#  arista.eos.eos_ntp_global:
+#    config:
+#      servers:
+#        - server: '{{ntp_server1}}'
+#        - server: '{{ntp_server2}}'
+#    state: replaced
+#  when: ansible_net_system == "eos"
+- name: Configure - Banner_login - Arista EOS
+  arista.eos.eos_banner:
+    banner: login
+    text: "{{banner_text}}"
+
+    state: present
+  when: ansible_net_system == "eos"
+
+- name: Configure - Banner_login - Cisco IOS
+  cisco.ios.ios_banner:
+    banner: login
+    text: "{{banner_text}}"
+
+    state: present
+  when: ansible_net_system == "ios"
+
+- name: Configure - Banner_motd  - Cisco NXOS
+  cisco.nxos.nxos_banner:
+    banner: motd
+    text: "{{banner_text}}"
+
+    state: present
+  when: ansible_net_system == "nxos"

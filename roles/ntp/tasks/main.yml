@@ -1,0 +1,28 @@
+---
+# tasks file for ntp
+- name: Configure - NTP - Arista
+  arista.eos.eos_ntp_global:
+    config:
+      servers:
+        - server: '{{ntp_server1}}'
+        - server: '{{ntp_server2}}'
+    state: replaced
+  when: ansible_net_system == "eos"
+
+- name: Configure - NTP - Cisco IOS
+  cisco.ios.ios_ntp_global:
+    config:
+      servers:
+        - server: '{{ntp_server1}}'
+        - server: '{{ntp_server2}}'
+    state: replaced
+  when: ansible_net_system == "ios"
+
+- name: Configure - NTP - Cisco NXOS
+  cisco.nxos.nxos_ntp_global:
+    config:
+      servers:
+        - server: '{{ntp_server1}}'
+        - server: '{{ntp_server2}}'
+    state: overridden
+  when: ansible_net_system == "nxos"

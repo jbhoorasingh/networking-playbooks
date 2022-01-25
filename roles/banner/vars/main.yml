@@ -1,0 +1,9 @@
+---
+banner_text: |
+      #############################################
+      AThis is a private system maintained by the
+      JermaineCO.
+      Unauthorized use of this system can result in
+      civil and criminal penalties!
+             {{ inventory_hostname.upper()|center }}
+      #############################################

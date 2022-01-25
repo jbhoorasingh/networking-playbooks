@@ -1,0 +1,15 @@
+---
+# --------------------------------------------
+# This is a test playbook for configuring ntp
+# on network devices
+# --------------------------------------------
+- name: Run commands on remote LAB devices
+  hosts: all
+  roles:
+    - {role: ntp, ntp_server1: 1.1.1.1, ntp_server2: 1.1.1.2}
+#    - {role: banner, banner_text: "#################\nBanner Test \nBanner Test Line2\n#################\n"}
+    - {role: banner}
+    - {role: system}
+
+
+

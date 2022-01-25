@@ -1,0 +1,4 @@
+---
+# vars file for ntp
+ntp_server1: 'time.google.com'
+ntp_server2: 'time.windows.com'
