@@ -1,0 +1,9 @@
+---
+account1_name: "local_admin1"
+account1_privilege: 15
+account1_password: "Coolaid"
+account2_name: "local_admin2"
+account2_privilege: 1
+account2_password: "Pineapple"
+aaa_authentication1_login_default: "local"
+enable_password: "Watermelon"

@@ -10,6 +10,7 @@
 #    - {role: banner, banner_text: "#################\nBanner Test \nBanner Test Line2\n#################\n"}
     - {role: banner}
     - {role: system}
+    - {role: local_authentication}
 
 
 
