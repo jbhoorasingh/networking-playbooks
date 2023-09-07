@@ -1,0 +1,30 @@
+[arista]
+arista1 ansible_host=10.99.0.221
+arista2 ansible_host=10.99.0.222
+arista3 ansible_host=10.99.0.150
+
+[ios]
+cisco-ios1 ansible_host=10.99.0.223
+cisco-ios2 ansible_host=10.99.0.224
+
+[nxos]
+#cisco-nxos1 ansible_host=10.99.0.225
+#cisco-nxos2 ansible_host=10.99.0.226
+
+[arista:vars]
+ansible_network_os = arista.eos.eos
+
+[ios:vars]
+ansible_network_os = cisco.ios.ios
+ansible_become_password = ansible
+
+[nxos:vars]
+ansible_network_os = cisco.nxos.nxos
+ansible_become_password = ansible
+
+[all:vars]
+ansible_user = admin
+ansible_password= ansible
+ansible_connection= network_cli
+ansible_become = True
+ansible_become_method = enable
