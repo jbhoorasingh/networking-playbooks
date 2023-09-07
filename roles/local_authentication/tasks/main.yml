@@ -8,24 +8,25 @@
 - name: Configure - Local Auth Set Login Method - Cisco IOS
   cisco.ios.ios_config:
     lines:
-      - "aaa authentication login default {{ aaa_authentication_login_default }}"
+      - "aaa authentication login default {{ aaa_authentication1_login_default }}"
+      - "aaa authorization exec default {{ aaa_authentication1_login_default }}"
   when: ansible_net_system == "ios"
 
 - name: Configure - Local Auth Set Acct1 - Cisco IOS
   cisco.ios.ios_user:
     name: "{{ account1_name }}"
     privilege: "{{ account1_privilege }}"
-    password:
-      secret: "{{ account1_password }}"
+    configured_password: "{{ account1_password }}"
+    update_password: always
     state: present
   when: ansible_net_system == "ios"
 
 - name: Configure - Local Auth Set Acct2 - Cisco IOS
   cisco.ios.ios_user:
-    name: "{{ account1_name }}"
+    name: "{{ account2_name }}"
     privilege: "{{ account2_privilege }}"
-    password:
-      secret: "{{ account2_password }}"
+    configured_password: "{{ account2_password }}"
+    update_password: always
     state: present
   when: ansible_net_system == "ios"
 
