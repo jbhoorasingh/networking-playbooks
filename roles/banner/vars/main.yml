@@ -5,5 +5,5 @@ banner_text: |
       JermaineCO.
       Unauthorized use of this system can result in
       civil and criminal penalties!
-             {{ inventory_hostname.upper()|center }}
+             {{ inventory_hostname.upper() }}
       #############################################
